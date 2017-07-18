@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>EChart南丁格尔图</title>
+</head>
+<body>
+<div id="main" style="width: 500px;height: 500px;border: 1px springgreen solid;margin:0 auto"></div>
+<script src="http://og3i9vpbe.bkt.clouddn.com/echarts.js"></script>
+<script>
+    var myChart=echarts.init(document.getElementById("main"));
+    option={
+        backgroundColor:'#2c343c',
+        visualMap:{
+            show:false,
+            min:80,
+            max:600,
+            inRange:{
+                colorLightness:[0,1]
+            }
+        },
+        series:[
+            {
+                name:'访问来源',
+                type:'pie',
+                radius:'55%',
+                data:[
+                    {value:235,name:'视频广告'},
+                    {value:274,name:'联盟广告'},
+                    {value:310,name:'邮件营销'},
+                    {value:385,name:'直接访问'},
+                    {value:400,name:'搜索引擎'}
+                ],
+                roseType:'angle',
+                label:{
+                    normal:{
+                        lineStyle:{
+                            color:'rgba(255,255,255,0.3)'
+                        }
+                    }
+                },
+                labelLine:{
+                    normal:{
+                        lineStyle:{
+                            color:'rgba(255,255,255,0.3)'
+                        }
+                    }
+                },
+                itemStyle:{
+                    normal:{
+                        color:'#c23531',
+                        shadowBlur:200,
+                        shadowColor:'rgba(0,0,0,0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据的异步加载和更新</title>
+</head>
+<body>
+<div id="main" style="width: 1000px;height: 500px;border: 1px springgreen solid;margin:0 auto"></div>
+<script src="http://og3i9vpbe.bkt.clouddn.com/jQ/jquery-1.11.3.js"></script>
+<script src="http://og3i9vpbe.bkt.clouddn.com/echarts.js"></script>
+
+<script>
+    var myChart=echarts.init(document.getElementById("main"));
+    $.get('data.json').done(function (data) {
+        myChart.setOption({
+            title:{
+                text:'数据异步加载示例'
+            },
+            tooltip:{},
+            legend:{
+                data:['销量']
+            },
+            xAxis:{
+                data:["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yaAxis:{},
+            seies:[{
+                name:'销量',
+                type:'bar',
+                data:[5,20,36,10,10,20]
+            }]
+        });
+    });
+</script>
+</body>
+</html>

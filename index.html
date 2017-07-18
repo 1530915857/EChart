@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Echart柱状图</title>
+</head>
+<body>
+<div id="main" style="width: 1000px;height: 500px;border: 1px springgreen solid;margin:0 auto"></div>
+<script src="http://og3i9vpbe.bkt.clouddn.com/echarts.js"></script>
+<script>
+    var myChart=echarts.init(document.getElementById("main"));
+    var option={
+        title:{
+           text:'2017年度上半年服装销量统计'
+    },
+    tooltip:{},
+    legend:{
+        data:[ '销量' ]
+    },
+    xAxis:{
+        data:["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子","T恤","内衣","短袖衬衫","长袖衬衫","短袖T恤","长袖T恤","外套","棉袄","羽绒服","风衣","卫裤","男鞋","女鞋","凉鞋","皮鞋","运动鞋"],
+        axisLabel : {
+            interval : 0,
+            formatter : function(value) {
+                return value.split("").join("\n");
+            }
+        }
+
+    },
+    yAxis:{},
+        series:[{
+            name:'销量',
+            type:'bar',
+            data:[5,20,40,10,10,20,15,33,23,12,15,19,32,24,25,10,23,49,33,38,22,26]
+        }]
+};
+myChart.setOption(option);
+</script>
+</body>
+</html>
